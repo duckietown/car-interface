@@ -23,10 +23,7 @@ RUN apt-get update && \
 RUN /entrypoint.sh \
   catkin_make \
     -j \
-    -C ${SOURCE_DIR}/catkin_ws/ \
-    -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} \
-    install && \
-  rm -rf ${SOURCE_DIR}/catkin_ws
+    -C ${SOURCE_DIR}/catkin_ws/
 
 RUN ["cross-build-end"]
 

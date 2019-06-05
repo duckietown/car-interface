@@ -8,7 +8,7 @@
   <remap from="$(arg _module)/wheels_cmd" to="wheels_driver_node/wheels_cmd"/>
 
   <node ns="$(arg vehicle_name)"  pkg="$(arg _module)" type="$(arg _module)_node.py" name="$(arg _module)" output="screen" clear_params="true" required="true">
-    <rosparam command="load" file="$(env CONFIG_DIR)/$(arg _module)/$(arg config_file).yaml"/>
+    <rosparam command="load" file="$(find car_interface)/config/$(arg config_file).yaml"/>
   </node>
 
 </launch>
