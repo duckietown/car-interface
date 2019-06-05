@@ -1,7 +1,7 @@
 ARG ARCH=arm32v7
 ARG BRANCH
 
-FROM duckietown/${ARCH}-rpi-commons:${BRANCH}
+FROM duckietown/${ARCH}-ros-commons:afdaniele-devel
 
 # configure environment
 ENV LAUNCH_FILE="${SOURCE_DIR}/launch.sh"
@@ -20,7 +20,7 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 # build packages
-RUN . /entrypoint.sh && \
+RUN /entrypoint.sh \
   catkin_make \
     -j \
     -C ${SOURCE_DIR}/catkin_ws/ \
