@@ -11,13 +11,6 @@ COPY ./assets/launch.sh "${LAUNCH_FILE}"
 
 RUN ["cross-build-start"]
 
-# install libraries
-RUN apt-get update && \
-  apt-get install -y \
-    ros-${ROS_DISTRO}-tf-conversions \
-  && \
-  rm -rf /var/lib/apt/lists/*
-
 # build packages
 RUN /entrypoint.sh \
   catkin_make \
